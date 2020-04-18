@@ -9,31 +9,49 @@
     <script>
 
 
-        var users =[{ Email:'Eyal@gmail.com', Password:'123abc', userName:'EYAL PELEG', phoneNumber:'321321', photo:'img1'},{ Email:'adas@gmail.com', Password:'dasbc', userName:'EYAL PEwLEG', phoneNumber:'32132f321', photo:'img2'}]
-
-
-        var favourite = {UserId:8, SpaceId:8}
+       
 
         $(document).ready(function () {
-          //ajaxCall("GET", "../api/User", "", getMyUsersSS, getMyUsersERR)
+      
+        //ajaxCall("DELETE", "../api/User/28", "" , getMyUsersSS, getMyUsersERR);
+         //ajaxCall("GET", "../api/space", "", getMyUsersSS, getMyUsersERR);
+
+        });
+
+        function getMyUsersSS(data) {
+            console.log(data);
+        };
+
+        function getMyUsersERR(err) {
+            console.log(err)
+        };
+        function postMyUsersSS(data) {
+            console.log(data);
+        };
+
+        function postMyUsersERR(err) {
+            console.log(err)
+        };
+    
+            //ajaxCall("GET", "../api/User", "", getMyUsersSS, getMyUsersERR)
          // ajaxCall("GET", "../api/space", "", getMyUsersSS, getMyUsersERR);
 
                  // ajaxCall("DELETE", "../api/space/26", "", getMyUsersSS, getMyUsersERR);
 
                //ajaxCall("GET", "../api/order", "", getMyUsersSS, getMyUsersERR);
 
-        var order = {SpaceId:"7",UserId:"5",reservationDate:"date",startHour:"15:00",endHour:"16:00" };
+        var order = {SpaceId:"7",UserId:"5",reservationDate:"date",startHour:"15:00",endHour:"16:00",price:"0" };
 
 
                        //ajaxCall("POST", "../api/order", JSON.stringify(order), getMyUsersSS, getMyUsersERR);
         var facility = {parking : "true",
-toilet :"false",
-kitchen : "true",
-intercom :"false",
-accessible : "true",
-airCondition :"false",
-wifi : "true",
-spaceId :"false"};
+                        toilet :"false",
+                        kitchen : "true",
+                        intercom :"false",
+                        accessible : "true",
+                        airCondition :"false",
+                        wifi : "true",
+                        spaceId :"false"    };
 
         var availability = { 
 		"Friday": "00:00-03:00",
@@ -43,15 +61,13 @@ spaceId :"false"};
 		"Thursday": "06:00-09:00",
 		"Tuesday": "11:00-14:00",
 		"Wednesday": "11:00-13:00"
-        }
+        };
 
         var equipment = {
 		"Id": "9",
 		"Name": "Drum",
 		"SpaceId": "8"
-    }
-
-
+    };
 
         var space = {
 		"AccountNumber": "02981694",
@@ -76,22 +92,74 @@ spaceId :"false"};
 		"UserEmail": "al@gmail.com"
 	};
 
-        var spacedata = {space, facility, equipment, availability};
+        //var spacedata = {space, facility, equipment, availability};
         //console.log(data);
+                //ajaxCall("GET", "../api/User/4", "" , getMyUsersSS, getMyUsersERR)
 
+        //ajaxCall("GET", "../api/User/4/favourites", "" , getMyUsersSS, getMyUsersERR)
 
-        ajaxCall("GET", "../api/admin", "" , getMyUsersSS, getMyUsersERR);
+       // var num = 4;
 
-      ajaxCall("GET", "../api/admin/?UserName=aviv", "" , getMyUsersSS, getMyUsersERR);
+        //ajaxCall("GET", "../api/favourite/" + num, "" , getMyUsersSS, getMyUsersERR)
 
-              ajaxCall("GET", "../api/admin/?UserName=aviv&adminpassword=avivn", "" , getMyUsersSS, getMyUsersERR);
+        //ajaxCall("GET", "../api/User/4/favourites", "" , getMyUsersSS, getMyUsersERR)
 
+        //ajaxCall("GET", "../api/admin", "" , getMyUsersSS, getMyUsersERR);
 
+      //ajaxCall("GET", "../api/admin/?UserName=aviv", "" , getMyUsersSS, getMyUsersERR);
+
+              //ajaxCall("GET", "../api/admin/?UserName=aviv&adminpassword=avivn", "" , getMyUsersSS, getMyUsersERR);
 
         //ajaxCall("POST", "../api/space", JSON.stringify(space) , getMyUsersSS, getMyUsersERR);
 
-        //ajaxCall("POST", "../api/spacedata", JSON.stringify(spacedata) , getMyUsersSS, getMyUsersERR);
+        var spacedata2 = {space : {
+                "AccountNumber": "02981694",
+                "Bank": "Leumi",
+                "Branch": "574",
+                "Capabillity": "12",
+                "City": "Haifa",
+                "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Field": "Beauty",
+                "Imageurl1": "https://media-cdn.tripadvisor.com/media/photo-s/15/4c/8c/72/gett-s-hair-studio-salon.jpg",
+                "Imageurl2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/14/ff/61/25/getlstd-property-photo.jpg",
+                "Imageurl3": "https://i.pinimg.com/originals/f2/6e/31/f26e31804ed5324bb444b7233491abaa.jpg",
+                "Imageurl4": "https://i.pinimg.com/originals/b8/5a/40/b85a409cd599f522155a381b38b8875e.jpg",
+                "Imageurl5": "",
+                "Name": "Zaki Hair Salon",
+                "Number": "15",
+                "Price": "85.34",
+                "Rank": "3",
+                "Street": "Herzel",
+                "TermsOfUse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Uploadtime": "3/20/2020 12:00:00 AM",
+                "UserEmail": "al@gmail.com"
+            }, 
+            facility : {
+            parking : "true",
+            toilet :"false",
+            kitchen : "true",
+            intercom :"false",
+            accessible : "true",
+            airCondition :"false",
+            wifi : "true",
+            spaceId :"false"
+        },
+            availability : { 
+            "Friday": "00:00-03:00",
+            "Monday": "10:00-19:00",
+            "Saturday": "14:30-16:30",
+            "Sunday": "09:00-12:00",
+            "Thursday": "06:00-09:00",
+            "Tuesday": "11:00-14:00",
+            "Wednesday": "11:00-13:00"
+            },
+            equipment : {
+            "Id": "9",
+            "Name": "Drum",
+            "SpaceId": "8"
+        }};
 
+         //ajaxCall("POST", "../api/spacedata", JSON.stringify(spacedata2) , getMyUsersSS, getMyUsersERR);
 
         //ajaxCall("POST", "../api/space", JSON.stringify(data) , getMyUsersSS, getMyUsersERR);
 
@@ -101,54 +169,33 @@ spaceId :"false"};
 
                          // ajaxCall("GET", "../api/Availability", "", getMyUsersSS, getMyUsersERR)
 
-
                //   ajaxCall("GET", "../api/FieldEq", "", getMyUsersSS, getMyUsersERR)
 
         //ajaxCall("GET", "../api/Favourite", "", getMyUsersSS, getMyUsersERR)
 
         //ajaxCall("POST", "../api/Favourite", JSON.stringify(favourite), postMyUsersSS, postMyUsersERR)
 
+         var users =[{ Email:'Eyal@gmail.com', Password:'123abc', userName:'EYAL PELEG', phoneNumber:'321321', photo:'img1'},{ Email:'adas@gmail.com', Password:'dasbc', userName:'EYAL PEwLEG', phoneNumber:'32132f321', photo:'img2'}];
 
-        //ajaxCall("GET", "../api/User/4", "" , getMyUsersSS, getMyUsersERR)
+        var favourite = {UserId:8, SpaceId:8};
 
-        //ajaxCall("GET", "../api/User/4/favourites", "" , getMyUsersSS, getMyUsersERR)
-
-       // var num = 4;
-        //ajaxCall("GET", "../api/favourite/" + num, "" , getMyUsersSS, getMyUsersERR)
-
-        //ajaxCall("GET", "../api/User/4/favourites", "" , getMyUsersSS, getMyUsersERR)
-
-
-        
-
-        })
-
-      // for (i = 0; i < users.length; i++) {
+        // for (i = 0; i < users.length; i++) {
       //      ajaxCall("POST", "../api/User", JSON.stringify(users[i]), postMyUsersSS, postMyUsersERR)
       //  }
-
-        function getMyUsersSS(data) {
-            console.log(data);
-        }
-
-        function getMyUsersERR(err) {
-            console.log(err)
-        }
-        function postMyUsersSS(data) {
-            console.log(data);
-        }
-
-        function postMyUsersERR(err) {
-            console.log(err)
-        }
-     
-
-
-        
-
-
-
-
+       var user2 = {
+            Id:"2",
+            Email:"2", //this.state.Email,
+            Password:"2", //this.state.Password,
+            UserName:"2",//this.Fullname(this.state.FirstName, this.state.LastName),
+            PhoneNumber: "2",//this.state.PhoneNumber,
+            Photo:"2",// this.state.Photo,
+            spaceOwner:"2",// this.state.SpaceOwner,
+            visits:"2",
+            rank:"2",
+            RegistrationDate:"2"
+        };
+       //ajaxCall("POST", "../api/User", JSON.stringify(user2), postMyUsersSS, postMyUsersERR)
+               // ajaxCall("GET", "../api/User", "", postMyUsersSS, postMyUsersERR)
 
     </script>
     <title></title>

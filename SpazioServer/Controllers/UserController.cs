@@ -17,7 +17,6 @@ namespace SpazioServer.Controllers
     {
         // GET api/<controller>
         [HttpGet]
-        [Route("api/User")]
         public List<User> Get()
         {
             User  u = new User();

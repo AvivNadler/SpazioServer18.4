@@ -112,7 +112,7 @@ public class DBServices
         string format = "yyyy-MM-dd HH:mm:ss";
         DateTime time = DateTime.Now;
 
-        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', '{3}','{4}',{5},{6},{7},'{8}')", user.Email, user.Password, user.UserName, user.PhoneNumber, user.Photo, user.SpaceOwner, user.Visits, user.Rank, time.ToString(format));
+        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', '{3}','{4}','{5}',{6},{7},'{8}')", user.Email, user.Password, user.UserName, user.PhoneNumber, user.Photo, user.SpaceOwner, user.Visits, user.Rank, time.ToString(format));
         String prefix = "INSERT INTO Users_2020" + "(Email,Password,UserName,PhoneNumber,Photo,SpaceOwner,visits,rank,RegisterationDate) ";
         command = prefix + sb.ToString();
 
@@ -151,7 +151,7 @@ public class DBServices
                 u.SpaceOwner = Convert.ToBoolean(dr["SpaceOwner"]);
                 u.Visits = Convert.ToInt32(dr["visits"]);
                 u.Rank = Convert.ToDouble(dr["rank"]);
-                u.RegistrationDate = (string)dr["RegisterationDate"];
+                u.RegistrationDate = dr["RegisterationDate"].ToString();
             }
         }
         catch (Exception ex)
@@ -295,7 +295,7 @@ public class DBServices
                  u.SpaceOwner = Convert.ToBoolean(dr["SpaceOwner"]);
                  u.Visits = Convert.ToInt32(dr["visits"]);
                  u.Rank = Convert.ToDouble(dr["rank"]);
-                 u.RegistrationDate = (string)dr["RegisterationDate"];
+                 u.RegistrationDate = dr["RegisterationDate"].ToString();
 
                 Users.Add(u);
             }

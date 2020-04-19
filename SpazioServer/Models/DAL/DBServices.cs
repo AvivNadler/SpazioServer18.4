@@ -174,7 +174,7 @@ public class DBServices
     //--------------------------------------------------------------------------------------------------
     public bool userTypeCheckandUpdate(string email)
     {
-        bool userType = true;
+        bool userType = false ;
         User u = new User();
         int numEffected;
         SqlConnection con = null;

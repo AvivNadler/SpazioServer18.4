@@ -28,18 +28,31 @@ namespace SpazioServer.Controllers
             bool userType;
             Space s = spaceData.Space;
             Facility f = spaceData.Facility;
-            Equipment e = spaceData.Equipment;
+            Equipment[] e = spaceData.Equipment;
             Availability a = spaceData.Availability;
+
             DBServices dbs = new DBServices();
+
             int newSpaceId = dbs.insert(s);
+
             f.SpaceId = newSpaceId;
-            e.SpaceId = newSpaceId;
+            foreach (Equipment item in e)
+            {
+                item.SpaceId = newSpaceId;
+            }
+            //e.SpaceId = newSpaceId;
             a.SpaceId = newSpaceId;
             userType = dbs.userTypeCheckandUpdate(s.UserEmail);
 
+            //  countertest variabe for test how many rows affected 
             int countertest = 0;
             countertest += dbs.insert(f);
-            countertest += dbs.insert(e);
+
+            foreach (Equipment item in e)
+            {
+                countertest += dbs.insert(item);
+            }
+            
             countertest += dbs.insert(a);
 
             return spaceData;

@@ -13,12 +13,12 @@ namespace SpazioServer.Models
     {
         Space space;
         Facility facility;
-        Equipment equipment;
+        Equipment[] equipment;
         Availability availability;
 
         public SpaceData() { }
 
-        public SpaceData(Space space, Facility facility, Equipment equipment, Availability availability)
+        public SpaceData(Space space, Facility facility, Equipment[] equipment, Availability availability)
         {
             this.space = space;
             this.facility = facility;
@@ -28,7 +28,7 @@ namespace SpazioServer.Models
 
         public Space Space { get => space; set => space = value; }
         public Facility Facility { get => facility; set => facility = value; }
-        public Equipment Equipment { get => equipment; set => equipment = value; }
+        public Equipment[] Equipment { get => equipment; set => equipment = value; }
         public Availability Availability { get => availability; set => availability = value; }
     }
 }
